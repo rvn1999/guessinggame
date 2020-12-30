@@ -1,7 +1,11 @@
 #!/bin/sh
+
 function cme { 
 wcou=$(ls|wc-l) 
 }
+
+
+
 echo "HOW many files in this directory?"
 cme;
 read guess;
