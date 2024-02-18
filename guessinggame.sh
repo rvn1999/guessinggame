@@ -1,21 +1,23 @@
-#!/bin/sh
+#!/bin/bash
 
-function cme { 
-wcou=$(ls|wc-l) 
+function congrats {
+echo "Congratulations!!!!!"
 }
 
-
-
-echo "HOW many files in this directory?"
-cme;
-read guess;
-while [guess != wcou]
+while true
 do
-	if [guess -gt wcou]
-		echo "too high"
+	count=$(ls | wc -l);
+	echo "how many files are in the current directory?";
+	read user_in;
+	if [ $count -gt $user_in ]
+	then
+		echo "guess was too low"
+	elif [ $count -lt $user_in ]
+	then
+		echo "guess was too high"
 	else
-		echo "too low"
+		break
 	fi
-	read guess;
 done
-echo "Congratulations !!"
+
+congrats;
